@@ -70,7 +70,7 @@ namespace ShoppingAPI.Controllers
         public ActionResult<double> TotalPrice()
         {
             double totalPrice = _repository.TotalPrice();
-            if (totalPrice > 0)
+            if (totalPrice < 0)
             {
                 return NoContent();
             }
