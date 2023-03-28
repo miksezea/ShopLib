@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopLib.Models
 {
-    public class ShoppingList
+    public class ShoppingItem
     {
         public int Id { get; set; }
         public string Name { get; set; }
