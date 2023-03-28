@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ShopLib.Models;
 using ShoppingAPI.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,34 +12,55 @@ namespace ShoppingAPI.Repositories.Tests
     [TestClass()]
     public class ShoppingItemsRepositoryTests
     {
-        [TestMethod()]
-        public void ShoppingItemsRepositoryTest()
+        // reference til listen
+        private ShoppingItemsRepository repository;
+
+        // Ny liste for hver test
+        [TestInitialize]
+        public void BeforeEachTest()
         {
-            Assert.Fail();
+            repository = new ShoppingItemsRepository();
         }
 
         [TestMethod()]
         public void GetAllTest()
         {
-            Assert.Fail();
+            var actual = repository.GetAll();
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(typeof(List<ShoppingItem>), actual.GetType());
+            Assert.AreEqual(3, actual.Count());
         }
 
         [TestMethod()]
         public void AddTest()
         {
-            Assert.Fail();
+            ShoppingItem item = new() { Name = "test", Price = 10, Quantity = 9};
+            repository.Add(item);
+            var actual = repository.GetAll();
+
+            Assert.AreEqual(4, actual.Count());
+            // Svær at teste uden GetById
         }
 
         [TestMethod()]
         public void DeleteTest()
         {
-            Assert.Fail();
+            repository.Delete(3);
+            var actual = repository.GetAll();
+
+            Assert.AreEqual(2, actual.Count());
+            Assert.ThrowsException<ArgumentException>(() => repository.Delete(4));
         }
 
         [TestMethod()]
         public void TotalPriceTest()
         {
-            Assert.Fail();
+            var actual = repository.TotalPrice();
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(typeof(double), actual.GetType());
+            Assert.AreEqual(46, actual);
         }
     }
 }
