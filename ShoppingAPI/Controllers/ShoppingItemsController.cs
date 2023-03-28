@@ -39,7 +39,8 @@ namespace ShoppingAPI.Controllers
             {
                 ShoppingItem createdItem = _repository.Add(newItem);
                 return Created($"api/shoppingitems/{createdItem.Id}", createdItem);
-            } catch (ArgumentNullException ex)
+            }
+            catch (ArgumentNullException ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -55,7 +56,8 @@ namespace ShoppingAPI.Controllers
             {
                 ShoppingItem deletedItem = _repository.Delete(id);
                 return Ok(deletedItem);
-            } catch (ArgumentException ex)
+            }
+            catch (ArgumentException ex)
             {
                 return NotFound(ex.Message);
             }
