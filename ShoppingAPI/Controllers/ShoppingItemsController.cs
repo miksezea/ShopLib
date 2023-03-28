@@ -5,7 +5,7 @@ using ShoppingAPI.Repositories;
 namespace ShoppingAPI.Controllers
 {
     [Route("api/[controller]")]
-    // URI: api/items
+    //URI: api/ShoppingItems
     [ApiController]
     public class ShoppingItemsController : ControllerBase
     {
@@ -38,7 +38,7 @@ namespace ShoppingAPI.Controllers
             try
             {
                 ShoppingItem createdItem = _repository.Add(newItem);
-                return Created($"api/items/{createdItem.Id}", createdItem);
+                return Created($"api/shoppingitems/{createdItem.Id}", createdItem);
             } catch (ArgumentNullException ex)
             {
                 return BadRequest(ex.Message);
@@ -61,16 +61,16 @@ namespace ShoppingAPI.Controllers
             }
         }
 
-        // GET: api/<ShoppingItemsController>
+        // GET: api/<ShoppingItemsController>/Sum
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [HttpGet]
-        public ActionResult<IEnumerable<double>> TotalPrice()
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpGet("Sum")]
+        public ActionResult<double> TotalPrice()
         {
             double totalPrice = _repository.TotalPrice();
-            if (totalPrice < 0)
+            if (totalPrice > 0)
             {
-                return NotFound();
+                return NoContent();
             }
             return Ok(totalPrice);
         }

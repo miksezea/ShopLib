@@ -43,15 +43,10 @@ namespace ShoppingAPI.Repositories
             }
             return deleteItem;
         }
-
         public double TotalPrice()
         {
-            double totalPrice = 0;
-            foreach (var item in items)
-            {
-                totalPrice += item.Price;
-            }
-            return totalPrice;
+            double result = items.Sum(item => item.Price);
+            return result;
         }
     }
 }

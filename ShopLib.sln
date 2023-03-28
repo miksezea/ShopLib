@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopLib", "ShopLib\ShopLib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingAPI", "ShoppingAPI\ShoppingAPI.csproj", "{7E0C1D43-836D-4B97-B864-6C60F994BA22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingAPITests", "ShoppingAPITests1\ShoppingAPITests.csproj", "{440A7CEE-6CCB-442F-BC7D-E71359887E5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7E0C1D43-836D-4B97-B864-6C60F994BA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E0C1D43-836D-4B97-B864-6C60F994BA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E0C1D43-836D-4B97-B864-6C60F994BA22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{440A7CEE-6CCB-442F-BC7D-E71359887E5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440A7CEE-6CCB-442F-BC7D-E71359887E5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440A7CEE-6CCB-442F-BC7D-E71359887E5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440A7CEE-6CCB-442F-BC7D-E71359887E5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
